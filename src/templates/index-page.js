@@ -17,96 +17,50 @@ export const IndexPageTemplate = ({
 }) => (
   <div>
     <div
-      className="full-width-image margin-top-0"
+      className="w-full h-[350px] bg-cover bg-center flex items-center justify-center relative"
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
         })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
       }}
     >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
-      >
+      <div className="absolute inset-0 bg-black/50 z-0" />
+      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center">
         <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
+          className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg bg-orange-500/90 px-4 py-2 rounded mb-4 inline-block"
         >
           {title}
         </h1>
         <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
+          className="text-xl md:text-2xl font-semibold text-white bg-orange-500/80 px-4 py-2 rounded drop-shadow inline-block"
         >
           {subheading}
         </h3>
       </div>
     </div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-4">
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold mb-2">{mainpitch.title}</h2>
+          <p className="text-lg text-gray-600">{mainpitch.description}</p>
+        </div>
+        <div className="mb-12 text-center">
+          <h3 className="text-2xl font-semibold mb-2">{heading}</h3>
+          <p className="text-gray-700">{description}</p>
+        </div>
+        <Features gridItems={intro.blurbs} />
+        <div className="flex justify-center my-8">
+          <Link className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded shadow transition" to="/products">
+            See all products
+          </Link>
+        </div>
+        <div className="my-12">
+          <h3 className="text-2xl font-semibold mb-4 text-center">Latest stories</h3>
+          <BlogRoll />
+          <div className="flex justify-center mt-6">
+            <Link className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-6 rounded shadow transition" to="/blog">
+              Read more
+            </Link>
           </div>
         </div>
       </div>
